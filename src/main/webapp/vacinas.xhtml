@@ -15,11 +15,11 @@
         <h1>Vacinas do(a) #{vacinaBean.animal.nome}</h1>
 
         <h:panelGrid id="painelAnimal" columns="2">
-            <p:outputLabel value="Dono"/>
-            <p:inputText disabled="true" value="#{vacinaBean.animal.dono}"/>
+            <p:outputLabel value="Tutor"/>
+            <p:inputText disabled="true" value="#{vacinaBean.animal.tutor.nome}"/>
 
             <p:outputLabel value="Telefone"/>
-            <p:inputMask disabled="true" mask="999999999" value="#{vacinaBean.animal.telefone}"/>
+            <p:inputMask disabled="true" mask="999999999" value="#{vacinaBean.animal.tutor.telefone}"/>
 
             <p:outputLabel value="Raça"/>
             <p:inputText disabled="true" value="#{vacinaBean.animal.raca.nome}"/>

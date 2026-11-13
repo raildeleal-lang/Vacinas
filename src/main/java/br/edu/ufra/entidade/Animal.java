@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.ufra.entidade;
 
 import java.io.Serializable;
@@ -26,21 +21,16 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/**
- *
- * @author Fabio
- */
 @Entity
 @Table(name = "animal")
 @NamedQueries({
-    @NamedQuery(name = "Animal.findAll", query = "SELECT a FROM Animal a"),
-    @NamedQuery(name = "Animal.findById", query = "SELECT a FROM Animal a WHERE a.id = :id"),
-    @NamedQuery(name = "Animal.findByNome", query = "SELECT a FROM Animal a WHERE a.nome = :nome"),
-    @NamedQuery(name = "Animal.findByDono", query = "SELECT a FROM Animal a WHERE a.dono = :dono"),
-    @NamedQuery(name = "Animal.findByTelefone", query = "SELECT a FROM Animal a WHERE a.telefone = :telefone"),
-    @NamedQuery(name = "Animal.findByTipo", query = "SELECT a FROM Animal a WHERE a.tipo = :tipo"),
-    @NamedQuery(name = "Animal.findByNascimento", query = "SELECT a FROM Animal a WHERE a.nascimento = :nascimento")})
+        @NamedQuery(name = "Animal.findAll", query = "SELECT a FROM Animal a"),
+        @NamedQuery(name = "Animal.findById", query = "SELECT a FROM Animal a WHERE a.id = :id"),
+        @NamedQuery(name = "Animal.findByNome", query = "SELECT a FROM Animal a WHERE a.nome = :nome"),
+        @NamedQuery(name = "Animal.findByTipo", query = "SELECT a FROM Animal a WHERE a.tipo = :tipo"),
+        @NamedQuery(name = "Animal.findByNascimento", query = "SELECT a FROM Animal a WHERE a.nascimento = :nascimento")})
 public class Animal implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,16 +44,6 @@ public class Animal implements Serializable {
     private String nome;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "dono")
-    private String dono;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 9)
-    @Column(name = "telefone")
-    private String telefone;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "tipo")
     private Character tipo;
     @Column(name = "nascimento")
@@ -74,6 +54,9 @@ public class Animal implements Serializable {
     @JoinColumn(name = "raca", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Raca raca;
+    @JoinColumn(name = "tutor", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Tutor tutor;
 
     public Animal() {
     }
@@ -82,11 +65,9 @@ public class Animal implements Serializable {
         this.id = id;
     }
 
-    public Animal(Integer id, String nome, String dono, String telefone, Character tipo) {
+    public Animal(Integer id, String nome, Character tipo) {
         this.id = id;
         this.nome = nome;
-        this.dono = dono;
-        this.telefone = telefone;
         this.tipo = tipo;
     }
 
@@ -104,22 +85,6 @@ public class Animal implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getDono() {
-        return dono;
-    }
-
-    public void setDono(String dono) {
-        this.dono = dono;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public Character getTipo() {
@@ -154,6 +119,14 @@ public class Animal implements Serializable {
         this.raca = raca;
     }
 
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -163,7 +136,6 @@ public class Animal implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Animal)) {
             return false;
         }
@@ -178,5 +150,5 @@ public class Animal implements Serializable {
     public String toString() {
         return "br.edu.ufra.entidade.Animal[ id=" + id + " ]";
     }
-    
+
 }

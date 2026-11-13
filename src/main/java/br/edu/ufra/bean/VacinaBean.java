@@ -109,4 +109,6 @@ public class VacinaBean {
         }
     }
 
+    public static class Tutor {
+    }
 }

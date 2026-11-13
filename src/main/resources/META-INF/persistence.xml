@@ -8,22 +8,23 @@
         <class>br.edu.ufra.entidade.Animal</class>
         <class>br.edu.ufra.entidade.Vacina</class>
         <class>br.edu.ufra.entidade.Raca</class>
+        <class>br.edu.ufra.entidade.Tutor</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <!-- <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vacinas?useSSL=false"/> -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vacinas"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="root"/>
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vacinas"/>-->
+<!--            <property name="javax.persistence.jdbc.user" value="root"/>-->
+<!--            <property name="javax.persistence.jdbc.password" value="root"/>-->
             <!-- <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/> -->
-             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+<!--             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>-->
 
-            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="eclipselink.ddl-generation" value="none"/>
 
             <!-- Driver e URL do arquivo SQLite -->
-            <!-- <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/> -->
-            <!-- <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:C:/users/aluno/banco_dados.db"/> -->
-            <!-- <property name="javax.persistence.jdbc.user" value=""/> -->
-            <!-- <property name="javax.persistence.jdbc.password" value=""/> -->
+             <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+             <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:C:\Users\ibm_s\vacinas.db"/>
+             <property name="javax.persistence.jdbc.user" value=""/>
+             <property name="javax.persistence.jdbc.password" value=""/>
             <!-- Driver e URL do arquivo SQLite -->
         </properties>
     </persistence-unit>

@@ -16,6 +16,7 @@
 
         <p:commandButton action="animal.xhtml" icon="fa fa-file-o" value="Novo animal"/>
         <p:commandButton action="racas.xhtml" icon="fa fa-list-alt" value="Listar raças"/>
+        <p:commandButton action="tutores.xhtml" icon="fa fa-list-alt" value="Listar tutores"/>
 
         <br/>
         <br/>
@@ -25,12 +26,12 @@
                 <h:outputText value="#{a.nome}"/>
             </p:column>
 
-            <p:column headerText="Dono">
-                <h:outputText value="#{a.dono}"/>
+            <p:column headerText="Tutor">
+                <h:outputText value="#{a.tutor.nome}"/>
             </p:column>
 
-            <p:column headerText="Telefone" filterBy="#{a.telefone}">
-                <h:outputText value="#{a.telefone}"/>
+            <p:column headerText="Telefone" filterBy="#{a.tutor.telefone}">
+                <h:outputText value="#{a.tutor.telefone}"/>
             </p:column>
 
             <p:column headerText="Raça">
